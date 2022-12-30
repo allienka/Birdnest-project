@@ -1,5 +1,5 @@
 # Birdnest-project
-Assignement for Reaktor
+
 
 A rare and endangered Monadikuikka has been spotted nesting at a local lake.
 
