@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(63,72,83);
+    font-family: sans-serif;
+    color: rgb(220,220,220);
+    padding: 50px;
+    width: 100vw;
+    overflow-x: hidden;
+}
+table {
+    background-color: grey;
+    margin: 15px;
+    width: 70%;
+}
+h1{
+    font-weight: 400;
+  }
+table, th, td {
+border: 3px solid black;
+border-collapse: collapse;
+}
+th {
+text-align: left;
+padding:10px;
+
+}
+td{
+    padding:10px;
+}
