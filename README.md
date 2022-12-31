@@ -1,6 +1,7 @@
 # Birdnest-project
 
-web application which lists all the pilots who recently violated the NDZ, using PHP and MYSQL
+web application which lists all the pilots who recently violated the NDZ, using PHP and MYSQL..
+not final version yet
 
 
 Drone positions
