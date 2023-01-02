@@ -39,3 +39,6 @@ With the help of functions, we insert or update the data into the database. Data
 
 <b>Mystyles.css</b><br>
 -styling the web page to responsive table 
+
+
+# DATABASE STRUCTURE
