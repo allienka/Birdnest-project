@@ -42,3 +42,16 @@ With the help of functions, we insert or update the data into the database. Data
 
 
 # DATABASE STRUCTURE
+
+<img width="425" alt="Screenshot 2023-01-03 at 11 17 34" src="https://user-images.githubusercontent.com/105230372/210329121-268640e6-1882-4bbe-ab98-8d9321f7d064.png">
+
+
+# Database Drones<br>
+<b>Table Drone:</b><br>
+-serial number : the drones serial number, primary key
+-First name: first name to who the drone is registered
+-Last name: last name of the person to who the drone in registered
+-email: email of the person
+-phone number: person's phone number
+-position: the drones position
+-timedate: the date and time when the drone was seen in the NDZ
