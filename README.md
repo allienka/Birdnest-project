@@ -1,6 +1,7 @@
 # Birdnest-project
 not final version yet
 
+
 The aim of this project is to create a web app to list all the drone pilots, that violated the NDZ perimeter around the nest of endangered bird Monadikuikka.  
 The area withing 100 meters of the nest is declared as NDZ.
 
@@ -31,7 +32,7 @@ Such as inserting and updating data into the database, deleting data and printin
 
 <b>Index.php</b><br>
 -set to refresh the web app automatically in 10 minutes
-Fetching the data about drones from XML file and setting needed variables such as serial number, X, Y coordinates and time when they were spotted (the snapshot was made). From JSON time we get the data about pilots. 
+Fetching the data about drones from XML file and setting needed variables such as serial number, X, Y coordinates and time when they were spotted (the snapshot was made). From JSON file we get the data about pilots. 
 
 The no-fly zone is a circle with 100 meters radius, origin at position 250000,250000. With the help of Pythagoras theorem, we can count the distance needed to evaluate eighter the drone crossed the border of NDZ or not.
 
@@ -55,3 +56,14 @@ With the help of functions, we insert or update the data into the database. Data
 -phone number: person's phone number<br>
 -position: the drones position<br>
 -timedate: the date and time when the drone was seen in the NDZ
+
+# Technologies used:
+
+-Frontend - HTML, CSS<br>
+-Backend - PHP	8.1.6, MYSQL<br>
+   
+# Dependencies :
+  
+  Xampp, phpMyAdmin<br>
+  Text Editor(VS Code)
+
