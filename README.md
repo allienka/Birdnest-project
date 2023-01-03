@@ -48,10 +48,10 @@ With the help of functions, we insert or update the data into the database. Data
 
 # Database Drones<br>
 <b>Table Drone:</b><br>
--serial number : the drones serial number, primary key
--First name: first name to who the drone is registered
--Last name: last name of the person to who the drone in registered
--email: email of the person
--phone number: person's phone number
--position: the drones position
+-serial number : the drones serial number, primary key<br>
+-First name: first name to who the drone is registered<br>
+-Last name: last name of the person to who the drone in registered<br>
+-email: email of the person<br>
+-phone number: person's phone number<br>
+-position: the drones position<br>
 -timedate: the date and time when the drone was seen in the NDZ
