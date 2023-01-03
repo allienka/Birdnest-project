@@ -56,3 +56,14 @@ With the help of functions, we insert or update the data into the database. Data
 -phone number: person's phone number<br>
 -position: the drones position<br>
 -timedate: the date and time when the drone was seen in the NDZ
+
+# Technologies used:
+
+-Frontend - HTML, CSS<br>
+-Backend - PHP, MYSQL<br>
+   
+# Dependencies :
+  
+  Xampp, phpMyAdmin<br>
+  Text Editor(VS Code)
+
