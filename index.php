@@ -75,7 +75,7 @@ foreach ($data->children() as $drone){
     }    
 
 }
-// funcrion deleting data older than 10 minutes from the database
+// function deleting data older than 10 minutes from the database
 sqlDelete(
     "drone",
     "NOW()-INTERVAL 10 MINUTE"
