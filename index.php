@@ -15,27 +15,29 @@ require 'functions.php';
 
 date_default_timezone_set("Europe/Helsinki");
 
-$response=file_get_contents('http://assignments.reaktor.com/birdnest/drones');
-$report = new SimpleXMLElement($response);
+$response=file_get_contents('http://assignments.reaktor.com/birdnest/drones'); //reading a file into a string 
+$report = new SimpleXMLElement($response); //getting XML data
 $data=$report->capture;
 $time=$report->capture['snapshotTimestamp'];
 $a = new \DateTime("$oldtime");
-$time = $a->format('Y-m-d H:i:s');
+$time = $a->format('Y-m-d H:i:s');//setting the time variable in the right format
 $time=date('Y-m-d H:i:s');
 
 foreach ($data->children() as $drone){
-    $x=$drone->positionX;
-    $y=$drone->positionY;
+
+    //setting the variables
+    $x=$drone->positionX; //X coordinate of a drone
+    $y=$drone->positionY; //Y coordinate of a drone
     $cSquared=((250000-$x)*(250000-$x))+((250000-$y)*(250000-$y));
-    $c=sqrt($cSquared);
-    $SN=$drone->serialNumber;
+    $c=sqrt($cSquared); 
+    $SN=$drone->serialNumber;//serial number 
     
-    if ($c<=100000){
+    if ($c<=100000){ // if the distance is smaller  or equal than 100000, the drone is in the NDZ
 
         $url = "http://assignments.reaktor.com/birdnest/pilots/$SN";
         $json = file_get_contents($url);
         $obj=json_decode($json,true);
-        
+        // reading and decoding json string
 
         foreach ($obj as $key=>$value){
             if ($key=="firstName"){
@@ -56,10 +58,10 @@ foreach ($data->children() as $drone){
             }if ($key=="phoneNumber"){
                 $phonenumber=$value;
                
-            }
+            } //setting the variables from the Json file 
             
         }
-        
+        //function to insert data into the database, updating position if smaller than previous, always updating the time 
         sqlInsertUpdate(
             "drone", 
             "Serialnumber, Firstname, Lastname, email, phonenumber, position, timedate", 
@@ -73,17 +75,18 @@ foreach ($data->children() as $drone){
     }    
 
 }
-
+// funcrion deleting data older than 10 minutes from the database
 sqlDelete(
     "drone",
     "NOW()-INTERVAL 10 MINUTE"
     
 );
+//function printing the table with list of pilots names, email, phone number and distance of the drone
 printTable(
     "drone",
     "timedate,Firstname, Lastname, email, phonenumber,position"
 );
-
+//function counting and showing the shortest distance of the drones in the database
 closestDistance(
     "drone"
    
