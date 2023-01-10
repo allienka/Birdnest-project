@@ -1,4 +1,3 @@
-
 <html>
 <head>
 <meta http-equiv="refresh" content="600" > 
@@ -11,87 +10,59 @@
 <body>    
 <?php
 
+require 'connection.php';
 require 'functions.php';
+$db=create_dbc();
 
 date_default_timezone_set("Europe/Helsinki");
 
-$response=file_get_contents('http://assignments.reaktor.com/birdnest/drones'); //reading a file into a string 
-$report = new SimpleXMLElement($response); //getting XML data
-$data=$report->capture;
-$time=$report->capture['snapshotTimestamp'];
-$a = new \DateTime("$oldtime");
-$time = $a->format('Y-m-d H:i:s');//setting the time variable in the right format
-$time=date('Y-m-d H:i:s');
+$XML=getDataFromXML();
+$time=getDroneTime($XML);
+$data=$XML->capture;
+$drones=$data->children();
 
-foreach ($data->children() as $drone){
-
-    //setting the variables
-    $x=$drone->positionX; //X coordinate of a drone
-    $y=$drone->positionY; //Y coordinate of a drone
-    $cSquared=((250000-$x)*(250000-$x))+((250000-$y)*(250000-$y));
-    $c=sqrt($cSquared); 
-    $SN=$drone->serialNumber;//serial number 
+foreach ($drones as $drone){
     
-    if ($c<=100000){ // if the distance is smaller  or equal than 100000, the drone is in the NDZ
+    $droneData=getDroneData($drone);
+    $closeatDistanceInsideNDZ=$droneData[1];
+    $SN=$droneData[0];
+    
+    if ($closeatDistanceInsideNDZ>=100000){ // if the distance is smaller  or equal than 100000, the drone is in the NDZ
 
-        $url = "http://assignments.reaktor.com/birdnest/pilots/$SN";
-        $json = file_get_contents($url);
-        $obj=json_decode($json,true);
-        // reading and decoding json string
-
-        foreach ($obj as $key=>$value){
-            if ($key=="firstName"){
-                $firstname=$value;
-            
-            }if ($key=="lastName"){
-                $lastname=$value;
-                if (strpos(($lastname),"'") !==false ){
-                    $lastname=str_replace("'","''",$lastname);
-                }
-                
-            }if ($key=="email"){
-                $email=$value;
-                if (strpos(($emai),"'") !==false){
-                    $email=str_replace("'","''",$email);
-                }
-                
-            }if ($key=="phoneNumber"){
-                $phonenumber=$value;
-               
-            } //setting the variables from the Json file 
-            
+        $jsonString=readAndDecodeJsonFile($SN,$closeatDistanceInsideNDZ);// reading and decoding json string
+        
+        foreach ($jsonString as $jstring){
+            $pilotData=getPilotData($jsonString);
+            $firstname=$pilotData[0];
+            $lastname=$pilotData[1];
+            $email=$pilotData[2];
+            $phonenumber=$pilotData[3];
         }
         //function to insert data into the database, updating position if smaller than previous, always updating the time 
-        sqlInsertUpdate(
-            "drone", 
+        insertOrUpdatePilot(
+            $db,
             "Serialnumber, Firstname, Lastname, email, phonenumber, position, timedate", 
-            "'$SN','$firstname','$lastname', '$email', '$phonenumber','$c','$time'",
+            "'$SN','$firstname','$lastname', '$email', '$phonenumber','$closeatDistanceInsideNDZ','$time'",
             "position",
-            "$c",
+            "$closeatDistanceInsideNDZ",
             "timedate",
             "$time"
         );
-        
-    }    
-
+    }
 }
 // function deleting data older than 10 minutes from the database
-sqlDelete(
-    "drone",
-    "NOW()-INTERVAL 10 MINUTE"
-    
-);
+cleanupOldPilots($db);
+
 //function printing the table with list of pilots names, email, phone number and distance of the drone
 printTable(
-    "drone",
+    $db,
     "timedate,Firstname, Lastname, email, phonenumber,position"
 );
 //function counting and showing the shortest distance of the drones in the database
-closestDistance(
-    "drone"
-   
-);
+getClosestDistance($db);
 
+
+close_db($db);
 ?>
 
 </body>
