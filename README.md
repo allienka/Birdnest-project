@@ -1,8 +1,5 @@
 # Birdnest-project
 
-<b>TO DO:</b><br>
--tests<br>
--link to app
 
 The aim of this project is to create a web app to list all the drone pilots, that violated the NDZ perimeter around the nest of endangered bird Monadikuikka.  
 The area withing 100 meters of the nest is declared as NDZ.
@@ -43,6 +40,9 @@ With the help of functions, we insert or update the data into the database. Data
 <b>Mystyles.css</b><br>
 -styling the web page to responsive table 
 
+<b>TO DO:</b><br>
+-tests<br>
+-link to app
 
 # DATABASE STRUCTURE
 
