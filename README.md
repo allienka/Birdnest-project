@@ -1,6 +1,6 @@
 # Birdnest-project
-not final version yet
-#TODO:
+
+# STILL TO DO:
 -tests<br>
 -link to app
 
