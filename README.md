@@ -1,6 +1,8 @@
 # Birdnest-project
 not final version yet
-
+#TODO:
+-tests<br>
+-link to app
 
 The aim of this project is to create a web app to list all the drone pilots, that violated the NDZ perimeter around the nest of endangered bird Monadikuikka.  
 The area withing 100 meters of the nest is declared as NDZ.
