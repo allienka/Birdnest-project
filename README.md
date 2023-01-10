@@ -1,6 +1,6 @@
 # Birdnest-project
 
-# STILL TO DO:
+<b>TO DO:</b>
 -tests<br>
 -link to app
 
