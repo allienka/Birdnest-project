@@ -39,9 +39,8 @@ MySQL
 3.Extract all the files and move it to the 'htdocs' folder of your XAMPP directory.<br>
 4.Start the Apache and Mysql in your XAMPP control panel.<br>
 5.Open your web browser and type 'localhost/phpmyadmin'<br>
-6.In phpmyadmin page, create a new database from the left panel and name it as 'myhmsdb'<br>
-7.Import the file 'drones.sql' inside your newly created database and click ok.<br>
-8.Open a new tab and type 'localhost/foldername' in the url of your browser    
+6.In phpmyadmin page, create a new database from the left panel and name it as 'drones<br>
+7.Open a new tab and type 'localhost/foldername' in the url of your browser    
 
 # MAIN FILES:
 
