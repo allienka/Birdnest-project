@@ -19,6 +19,29 @@ GET assignments.reaktor.com/birdnest/drones
 Pilot information
 GET assignments.reaktor.com/birdnest/pilots/:serialNumber
 
+<b>Prerequisites<b><br>
+
+Install XAMPP web server<br>
+Any Editor (Preferably VS Code or Sublime Text)<br>
+Any web browser with latest version<br>
+
+<b>Languages and Technologies used<b><br>
+
+HTML, CSS
+XAMPP (A web server by Apache Friends)
+Php
+MySQL  
+
+<b>Steps to run the project in your machine<b>
+
+1.Download and install XAMPP in your machine<br>
+2.Clone or download the repository<br>
+3.Extract all the files and move it to the 'htdocs' folder of your XAMPP directory.<br>
+4.Start the Apache and Mysql in your XAMPP control panel.<br>
+5.Open your web browser and type 'localhost/phpmyadmin'<br>
+6.In phpmyadmin page, create a new database from the left panel and name it as 'myhmsdb'<br>
+7.Import the file 'drones.sql' inside your newly created database and click ok.<br>
+8.Open a new tab and type 'localhost/foldername' in the url of your browser    
 
 # MAIN FILES:
 
