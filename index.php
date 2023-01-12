@@ -27,7 +27,7 @@ foreach ($drones as $drone){
     $closeatDistanceInsideNDZ=$droneData[1];
     $SN=$droneData[0];
     
-    if ($closeatDistanceInsideNDZ>=100000){ // if the distance is smaller  or equal than 100000, the drone is in the NDZ
+    if ($closeatDistanceInsideNDZ<=100000){ // if the distance is smaller  or equal than 100000, the drone is in the NDZ
 
         $jsonString=readAndDecodeJsonFile($SN,$closeatDistanceInsideNDZ);// reading and decoding json string
          
