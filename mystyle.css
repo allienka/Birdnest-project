@@ -9,25 +9,44 @@ body{
     color: rgb(220,220,220);
     padding: 50px;
     width: 100vw;
-    overflow-x: hidden;
+    
 }
 table {
+   
     background-color: grey;
     margin: 15px;
-    width: 70%;
+    width: 100%;
+    border-collapse: collapse;
 }
 h1{
     font-weight: 400;
   }
 table, th, td {
 border: 3px solid black;
-border-collapse: collapse;
+
 }
 th {
 text-align: left;
 padding:10px;
-
+background-color: darkgrey;
+color: black;
 }
 td{
     padding:10px;
 }
+
+/*responsive */
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table,th, td { 
+		display: inline-block; 
+        width: 100%;
+       
+	}
+    td{
+    padding-right: 0px;
+    }
+ 
+}	
