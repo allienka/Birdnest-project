@@ -14,25 +14,27 @@ The list should:<br>
 
 
 Drone positions
+
 GET assignments.reaktor.com/birdnest/drones
 
 Pilot information
+
 GET assignments.reaktor.com/birdnest/pilots/:serialNumber
 
-<b>Prerequisites<b><br>
+<b>PEREQUISITES</b><br>
 
-Install XAMPP web server<br>
-Any Editor (Preferably VS Code or Sublime Text)<br>
-Any web browser with latest version<br>
+- Install XAMPP web server<br>
+- Any Editor (Preferably VS Code or Sublime Text)<br>
+- Any web browser with latest version<br>
 
-<b>Languages and Technologies used<b><br>
+<b>Languages and Technologies used</b><br>
 
-HTML, CSS
-XAMPP (A web server by Apache Friends)
-Php
-MySQL  
+- HTML, CSS
+- XAMPP (A web server by Apache Friends)
+- Php
+- MySQL  
 
-<b>Steps to run the project in your machine<b>
+<b>Steps to run the project in your machine</b>
 
 1.Download and install XAMPP in your machine<br>
 2.Clone or download the repository<br>
