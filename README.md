@@ -21,7 +21,7 @@ Pilot information
 
 GET assignments.reaktor.com/birdnest/pilots/:serialNumber
 
-<b>PEREQUISITES</b><br>
+<b>PREREQUISITES</b><br>
 
 - Install XAMPP web server<br>
 - Any Editor (Preferably VS Code or Sublime Text)<br>
