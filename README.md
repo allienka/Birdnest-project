@@ -14,25 +14,27 @@ The list should:<br>
 
 
 Drone positions
+
 GET assignments.reaktor.com/birdnest/drones
 
 Pilot information
+
 GET assignments.reaktor.com/birdnest/pilots/:serialNumber
 
-<b>Prerequisites<b><br>
+<b>PREREQUISITES</b><br>
 
-Install XAMPP web server<br>
-Any Editor (Preferably VS Code or Sublime Text)<br>
-Any web browser with latest version<br>
+- Install XAMPP web server<br>
+- Any Editor (Preferably VS Code or Sublime Text)<br>
+- Any web browser with latest version<br>
 
-<b>Languages and Technologies used<b><br>
+<b>Languages and Technologies used</b><br>
 
-HTML, CSS
-XAMPP (A web server by Apache Friends)
-Php
-MySQL  
+- HTML, CSS
+- XAMPP (A web server by Apache Friends)
+- Php
+- MySQL  
 
-<b>Steps to run the project in your machine<b>
+<b>Steps to run the project in your machine</b>
 
 1.Download and install XAMPP in your machine<br>
 2.Clone or download the repository<br>
@@ -63,7 +65,7 @@ With the help of functions, we insert or update the data into the database. Data
 -styling the web page to responsive table 
 
 <b>TO DO:</b><br>
--tests<br>
+
 -link to app
 
 # DATABASE STRUCTURE
@@ -80,5 +82,9 @@ With the help of functions, we insert or update the data into the database. Data
 -phone number: person's phone number<br>
 -position: the drones position<br>
 -timedate: the date and time when the drone was seen in the NDZ
+
+
+<b>the web app look:</b><br>
+<img width="1898" alt="Screenshot 2023-01-12 at 16 12 15" src="https://user-images.githubusercontent.com/105230372/212089185-a3e87edd-2a47-4df9-a807-bfbcce034b6a.png">
 
 
