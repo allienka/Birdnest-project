@@ -1,5 +1,4 @@
 # Birdnest-project
-not final version yet
 
 
 The aim of this project is to create a web app to list all the drone pilots, that violated the NDZ perimeter around the nest of endangered bird Monadikuikka.  
@@ -20,6 +19,28 @@ GET assignments.reaktor.com/birdnest/drones
 Pilot information
 GET assignments.reaktor.com/birdnest/pilots/:serialNumber
 
+<b>Prerequisites<b><br>
+
+Install XAMPP web server<br>
+Any Editor (Preferably VS Code or Sublime Text)<br>
+Any web browser with latest version<br>
+
+<b>Languages and Technologies used<b><br>
+
+HTML, CSS
+XAMPP (A web server by Apache Friends)
+Php
+MySQL  
+
+<b>Steps to run the project in your machine<b>
+
+1.Download and install XAMPP in your machine<br>
+2.Clone or download the repository<br>
+3.Extract all the files and move it to the 'htdocs' folder of your XAMPP directory.<br>
+4.Start the Apache and Mysql in your XAMPP control panel.<br>
+5.Open your web browser and type 'localhost/phpmyadmin'<br>
+6.In phpmyadmin page, create a new database from the left panel and name it as 'drones<br>
+7.Open a new tab and type 'localhost/foldername' in the url of your browser    
 
 # MAIN FILES:
 
@@ -41,6 +62,9 @@ With the help of functions, we insert or update the data into the database. Data
 <b>Mystyles.css</b><br>
 -styling the web page to responsive table 
 
+<b>TO DO:</b><br>
+-tests<br>
+-link to app
 
 # DATABASE STRUCTURE
 
@@ -57,13 +81,4 @@ With the help of functions, we insert or update the data into the database. Data
 -position: the drones position<br>
 -timedate: the date and time when the drone was seen in the NDZ
 
-# Technologies used:
-
--Frontend - HTML, CSS<br>
--Backend - PHP	8.1.6, MYSQL<br>
-   
-# Dependencies :
-  
-  Xampp, phpMyAdmin<br>
-  Text Editor(VS Code)
 
