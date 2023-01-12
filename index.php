@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="refresh" content="600" > 
+<meta http-equiv="refresh" content="60" > 
 <style>
     <?php include('mystyle.css')?>
 </style>
@@ -23,14 +23,14 @@ $drones=$data->children();
 
 foreach ($drones as $drone){
     
-    $droneData=getDroneData($drone);
+    $droneData=getDroneData($db,$drone);
     $closeatDistanceInsideNDZ=$droneData[1];
     $SN=$droneData[0];
     
     if ($closeatDistanceInsideNDZ>=100000){ // if the distance is smaller  or equal than 100000, the drone is in the NDZ
 
         $jsonString=readAndDecodeJsonFile($SN,$closeatDistanceInsideNDZ);// reading and decoding json string
-        
+         
         foreach ($jsonString as $jstring){
             $pilotData=getPilotData($jsonString);
             $firstname=$pilotData[0];
@@ -38,6 +38,9 @@ foreach ($drones as $drone){
             $email=$pilotData[2];
             $phonenumber=$pilotData[3];
         }
+        
+        if(!empty($jsonString)){
+
         //function to insert data into the database, updating position if smaller than previous, always updating the time 
         insertOrUpdatePilot(
             $db,
@@ -48,8 +51,10 @@ foreach ($drones as $drone){
             "timedate",
             "$time"
         );
+        }
     }
 }
+
 // function deleting data older than 10 minutes from the database
 cleanupOldPilots($db);
 
@@ -59,7 +64,7 @@ printTable(
     "timedate,Firstname, Lastname, email, phonenumber,position"
 );
 //function counting and showing the shortest distance of the drones in the database
-getClosestDistance($db);
+printClosestDistance($db);
 
 
 close_db($db);
