@@ -65,7 +65,7 @@ With the help of functions, we insert or update the data into the database. Data
 -styling the web page to responsive table 
 
 <b>TO DO:</b><br>
--tests<br>
+
 -link to app
 
 # DATABASE STRUCTURE
