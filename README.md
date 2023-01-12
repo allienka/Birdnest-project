@@ -48,13 +48,15 @@ GET assignments.reaktor.com/birdnest/pilots/:serialNumber
 
 <b>Connection.php</b><br>
 -created a connection to the database
+-closing of connection
 
 <b>Functions.php</b><br>
 -file with functions created to be used in the main index.php file 
 Such as inserting and updating data into the database, deleting data and printing out the table
+functions to get data from XML and JSON files
 
 <b>Index.php</b><br>
--set to refresh the web app automatically in 10 minutes
+-set to refresh the web app automatically in minute
 Fetching the data about drones from XML file and setting needed variables such as serial number, X, Y coordinates and time when they were spotted (the snapshot was made). From JSON file we get the data about pilots. 
 
 The no-fly zone is a circle with 100 meters radius, origin at position 250000,250000. With the help of Pythagoras theorem, we can count the distance needed to evaluate eighter the drone crossed the border of NDZ or not.
