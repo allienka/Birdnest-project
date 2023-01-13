@@ -1,14 +1,11 @@
 <?php
 
-
 //inserting data into the database or update the position and time of the drones that appears again. Position is beeing updated only if the distance is shorter than previous
 function insertOrUpdatePilot($conn,$columns, $values,$positionColumn, $positionValue,$timedateColumn,$timedateValue){
     $updatequery = "INSERT INTO `". getTableName() . "` (" . $columns . ") VALUES (" . $values . ") ON DUPLICATE KEY UPDATE " . $positionColumn ."=CASE WHEN ".$positionColumn." >".$positionValue." THEN ".$positionValue. " ELSE ".$positionColumn." END,"
-    .$timedateColumn."=CASE WHEN ".$timedateColumn."<>'$timedateValue' THEN '$timedateValue' END ";"";
+    .$timedateColumn."=CASE WHEN ".$timedateColumn."<>'$timedateValue' THEN '$timedateValue ' END ";"";
     mysqli_query($conn, $updatequery) or die(mysqli_error($conn));
-    
 }
-
 //deleting the data from table older than (10)minutes
 function cleanupOldPilots($conn){
     $deletequery="DELETE FROM `". getTableName() . "` WHERE timedate < " . getPilotCleanupTimeout($conn) ."";
@@ -29,9 +26,7 @@ function printTable($conn,$printedColumns){
         } else {
             echo "No drones at the moment";
         }
-          
 }
-
 //printing the closest distance and the name of the pilot
 function printClosestDistance($conn){
     $query="SELECT MIN(position)AS closest FROM ".getTableName().";";
@@ -48,7 +43,6 @@ function printClosestDistance($conn){
         echo "<br>The closest distance is : $closest, by $first $last <br>";
         }         
     }
-   
 }
 //function to get table name
 function getTableName(){
@@ -79,7 +73,6 @@ function getDroneTime($report){
     $time=date('Y-m-d H:i:s');
     return $time;
 }
-
 function readAndDecodeJsonFile($SN,$closeatDistanceInsideNDZ){// reading and decoding json string
     $url = "http://assignments.reaktor.com/birdnest/pilots/$SN";
     $json = @file_get_contents($url,true);
@@ -90,22 +83,6 @@ function readAndDecodeJsonFile($SN,$closeatDistanceInsideNDZ){// reading and dec
         return($jsonString);
     }
 }
-function getPilotData($jsonString){
-    $firstname=$jsonString["firstName"];
-    $lastname=$jsonString["lastName"];
-    if (strpos(($lastname),"'") !==false ){
-        $lastname=str_replace("'","''",$lastname);
-    }
-    $email=$jsonString["email"];
-    if (strpos(($emai),"'") !==false){
-        $email=str_replace("'","''",$email);
-    }
-    $phonenumber=$jsonString["phoneNumber"];
-    $pilotData=[$firstname,$lastname,$email,$phonenumber];
-    return($pilotData);
-     
-}
-
 function getDroneData($conn,$drone){
     $SN=$drone->serialNumber;
     $x=$drone->positionX; 
@@ -114,6 +91,20 @@ function getDroneData($conn,$drone){
     $closeatDistanceInsideNDZ=sqrt($Squared); 
     $droneData=[$SN,$closeatDistanceInsideNDZ];    
     return($droneData);
+}
+function getPilotData($jsonString){
+    $firstname=$jsonString["firstName"];
+    $lastname=$jsonString["lastName"];
+    if (strpos(($lastname),"'") !==false ){
+        $lastname=str_replace("'","''",$lastname);//in case there is " ' " in the name ,SQL doesnt consider it as ending tag
+    }
+    $email=$jsonString["email"];
+    if (strpos(($emai),"'") !==false){
+        $email=str_replace("'","''",$email);
+    }
+    $phonenumber=$jsonString["phoneNumber"];
+    $pilotData=[$firstname,$lastname,$email,$phonenumber];
+    return($pilotData);
 }
 
 ?>

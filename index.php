@@ -27,6 +27,7 @@ foreach ($drones as $drone){
     $closeatDistanceInsideNDZ=$droneData[1];
     $SN=$droneData[0];
     
+    
     if ($closeatDistanceInsideNDZ<=100000){ // if the distance is smaller  or equal than 100000, the drone is in the NDZ
 
         $jsonString=readAndDecodeJsonFile($SN,$closeatDistanceInsideNDZ);// reading and decoding json string
@@ -41,16 +42,16 @@ foreach ($drones as $drone){
         
         if(!empty($jsonString)){
 
-        //function to insert data into the database, updating position if smaller than previous, always updating the time 
-        insertOrUpdatePilot(
-            $db,
-            "Serialnumber, Firstname, Lastname, email, phonenumber, position, timedate", 
-            "'$SN','$firstname','$lastname', '$email', '$phonenumber','$closeatDistanceInsideNDZ','$time'",
-            "position",
-            "$closeatDistanceInsideNDZ",
-            "timedate",
-            "$time"
-        );
+            //function to insert data into the database, updating position if smaller than previous, always updating the time 
+            insertOrUpdatePilot(
+                $db,
+                "Serialnumber, Firstname, Lastname, email, phonenumber, position, timedate", 
+                "'".mysqli_real_escape_string($db,$SN)."','".mysqli_real_escape_string($db,$firstname)."','".mysqli_real_escape_string($db,$lastname)."','".mysqli_real_escape_string($db,$email)."','".mysqli_real_escape_string($db,$phonenumber)."','".mysqli_real_escape_string($db,$closeatDistanceInsideNDZ)."','".mysqli_real_escape_string($db,$time)."'",
+                "position",
+                mysqli_real_escape_string($db,$closeatDistanceInsideNDZ),
+                "timedate",
+                mysqli_real_escape_string($db,$time)
+            );
         }
     }
 }
