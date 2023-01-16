@@ -68,7 +68,7 @@ function getDataFromXML(){
 }
 function getDroneTime($report){
     $time=$report->capture['snapshotTimestamp'];
-    $a = new \DateTime("$oldtime");
+    $a = new \DateTime();
     $time = $a->format('Y-m-d H:i:s');//setting the time variable in the right format
     $time=date('Y-m-d H:i:s');
     return $time;
@@ -99,7 +99,7 @@ function getPilotData($jsonString){
         $lastname=str_replace("'","''",$lastname);//in case there is " ' " in the name ,SQL doesnt consider it as ending tag
     }
     $email=$jsonString["email"];
-    if (strpos(($emai),"'") !==false){
+    if (strpos(($email),"'") !==false){
         $email=str_replace("'","''",$email);
     }
     $phonenumber=$jsonString["phoneNumber"];
