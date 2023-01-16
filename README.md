@@ -40,7 +40,8 @@ GET assignments.reaktor.com/birdnest/pilots/:serialNumber
 4. Start Apache and Mysql in your XAMPP control panel. 
 5. Open your web browser and type 'localhost/phpmyadmin' 
 6. In phpmyadmin page, create a new database from the left panel and name it as drones 
-7. Open a new tab and type 'localhost/fold
+7. Import drone table (drones.sql)
+8. Open a new tab and type 'localhost/fold
 
 # DATABASE STRUCTURE
 
@@ -61,4 +62,7 @@ GET assignments.reaktor.com/birdnest/pilots/:serialNumber
 <b>the web app look:</b><br>
 <img width="1898" alt="Screenshot 2023-01-12 at 16 12 15" src="https://user-images.githubusercontent.com/105230372/212089185-a3e87edd-2a47-4df9-a807-bfbcce034b6a.png">
 
+
+# Link to the app 
+https://solee.com/birdnest-project/
 
