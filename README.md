@@ -24,7 +24,9 @@ GET assignments.reaktor.com/birdnest/pilots/:serialNumber
 - Install XAMPP web server
 - Any Editor (Preferably VS Code or Sublime Text)
 - Any web browser with the latest version
-- Languages and Technologies used
+
+
+Languages and Technologies used
 
 - HTML, CSS
 - XAMPP (A web server by Apache Friends)
