@@ -3,7 +3,7 @@
 The aim of this project is to create a web app to list all the drone pilots that violated the NDZ perimeter around the nest of the endangered bird Monadikuikka. The area within 100 meters of the nest is declared as NDZ.
 
 # SPECIFICATIONS: 
-<b>The list should be</b>:
+<b>The list should:</b>:
 
 - Persist the pilot information for 10 minutes since their drone was last seen by the equipment
 - display the closest confirmed distance to the nest
