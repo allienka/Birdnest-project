@@ -43,7 +43,7 @@ Languages and Technologies used
 5. Open your web browser and type 'localhost/phpmyadmin' 
 6. In phpmyadmin page, create a new database from the left panel and name it as drones 
 7. Import drone table (drones.sql)
-8. Open a new tab and type 'localhost/fold
+8. Open a new tab and type 'localhost/folder
 
 # DATABASE STRUCTURE
 
