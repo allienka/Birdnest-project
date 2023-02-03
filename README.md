@@ -44,6 +44,9 @@ Languages and Technologies used
 6. In phpmyadmin page, create a new database from the left panel and name it as drones 
 7. Import drone table (drones.sql)
 8. Open a new tab and type 'localhost/folder
+9. Download all the files of the project to XAMPP folder
+10. Open them in editor and run index.php
+11. In web browser open localhost/nameofthexamppfolder
 
 # DATABASE STRUCTURE
 
